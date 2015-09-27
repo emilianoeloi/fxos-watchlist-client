@@ -5,13 +5,14 @@ setup:
 	@sudo npm install -g bower
 	@npm install
 	@cd src;@bower install
+	@cd src;@git clone git@github.com:mdn/gaia-2.0-bb.git
 
 run:
 	ifconfig | grep 255
 	@http-server ./build & node server.js
 
 watch:
-	@gulp
+	@gulp clear;gulp
 
 compile:
-	@gulp compile
+	@gulp clear;gulp compile
